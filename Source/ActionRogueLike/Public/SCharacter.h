@@ -19,8 +19,13 @@ public:
 	ASCharacter();
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> ProjectileClass;
+
+protected:
+
+	/*==============Add components===============*/
 
 	UPROPERTY(VisibleAnywhere)
 	UCameraComponent* CameraComp;
@@ -29,6 +34,13 @@ protected:
 	USpringArmComponent* SpringArmComp;
 
 	void MoveForward(float Value);
+
+	void MoveRight(float Value);
+
+	void PrimaryAttack();
+
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
 public:	
 	// Called every frame
